@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Permainan Batu Kertas Gunting</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .game {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .score {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Permainan Batu Kertas Gunting</h1>
+    <div class="game">
+        <form action="/main" method="post">
+            <label for="pilihan">Pilih: </label>
+            <select name="pilihan" id="pilihan">
+                <option value="Batu">Batu</option>
+                <option value="Kertas">Kertas</option>
+                <option value="Gunting">Gunting</option>
+            </select>
+            <button type="submit">Main</button>
+        </form>
+        {% if hasil %}
+            <p>Anda memilih: {{ pilihan_pemain }}</p>
+            <p>Komputer memilih: {{ pilihan_computer }}</p>
+            <p class="result">{{ hasil }}</p>
+        {% endif %}
+    </div>
+    <div class="score">
+        <h2>Skor:</h2>
+        <p>Menang: {{ skor.menang }}</p>
+        <p>Kalah: {{ skor.kalah }}</p>
+        <p>Seri: {{ skor.seri }}</p>
+    </div>
+</body>
+</html>
